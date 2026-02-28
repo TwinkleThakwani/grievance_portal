@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+       <!-- Hamburger Menu -->
+       <div class="hamburger-menu">
+        <i class="fas fa-bars" onclick="toggleMenu()"></i>
+    </div>
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="{{ url_for('index') }}" style="color: white;"><i class="fas fa-home"></i><span> Home</span></a></li>
+            <li><a href="{{ url_for('about_us')}}"style="color: white;"><i class="fas fa-info-circle"></i><span> About Us</span></a></li>
+            <li><a href="{{ url_for('case_history')}}"style="color: white;"><i class="fas fa-history"></i><span> Case History</span></a></li>
+           
+            <li><a href="{{ url_for('counseling')}}"style="color: white;"><i class="fas fa-user-friends"></i><span> Counseling</span></a></li>
+            <li><a href="{{ url_for('logout')}}"style="color: white;"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a></li>
+            <li><a href="{{ url_for('guidelines')}}"style="color: white;"><i class="fas fa-book"></i><span> Guidelines</span></a></li>
+    
+        </ul>
+    </nav>
+    <header class="header">
+        <h1>Student Dashboard</h1>
+        <p style="font-size: 1.1rem;">Here you can submit new complaints, 
+            view the status of your existing complaints,
+             update your profile, and provide feedback on resolved grievances.
+            </p>
+    </header>
+
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+
+    <main class="main-content">
+        <div class="info-cards">
+            <div class="info-card" onclick="redirectTo('view_complaints.html')">
+                <i class="fas fa-eye fa-2x"></i>
+                <h3>Complaint History</h3>
+                <p>Access and view your submitted complaints.</p>
+                <button class="button">View Complaints</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('student_form.html')">
+                <i class="fas fa-file-alt fa-2x"></i>
+                <h3>Submit Complaint</h3>
+                <p>Submit a complaint regarding issues.</p>
+                <button class="button">Submit Complaint</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('profile.html')">
+                <i class="fas fa-user fa-2x"></i>
+                <h3>Profile</h3>
+                <p>View your profile information.</p>
+                <button class="button">Edit Profile</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('feedback.html')">
+                <i class="fas fa-comment-dots fa-2x"></i>
+                <h3>Feedback</h3>
+                <p>Give your review on verdict.</p>
+                <button class="button">Give Feedback</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('check_verdict.html')">
+                <i class="fas fa-search"></i>
+                <h3>Check Verdict</h3>
+                <p>View verdict and status.</p>
+                <button class="button">Check Verdict</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p> 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    
+  
+        </script>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const sidebar = document.getElementById('sidebar');
+
+        // Toggle sidebar on click
+        hamburgerMenu.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!hamburgerMenu.contains(event.target) && !sidebar.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

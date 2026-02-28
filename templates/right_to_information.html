@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right to Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>Right to Information</h1>
+        <p>Learn about your rights under the Right to Information Act.</p>
+    </header>
+    <main class="main-content">
+        <section class="policy-section">
+            <h2>What is RTI?</h2>
+            <p>The Right to Information Act, 2005 empowers citizens to seek information from public authorities, promoting transparency and accountability.</p>
+        </section>
+        <section class="policy-section">
+            <h2>How to File an RTI?</h2>
+            <ul>
+                <li>Submit a written application to the designated Public Information Officer (PIO).</li>
+                <li>Provide clear details about the information you seek.</li>
+                <li>Pay the prescribed fee as per the RTI rules.</li>
+            </ul>
+        </section>
+        <section class="policy-section">
+            <h2>Contact for RTI</h2>
+            <p>For RTI-related queries, contact the college's Public Information Officer at <a href="mailto:office@lachoomemorial.org" class="anchor">office@lachoomemorial.org</a>.</p>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 Lachoo Memorial College of Science & Technology. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

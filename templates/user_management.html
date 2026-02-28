@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>Users Management</h1>
+        <p>Add and manage user accounts and their activity status.</p>
+    </header>
+    <main class="main-content">
+        <div class="user-container">
+            <h2 class="user-header">All Users</h2>
+
+            <table class="user-table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.user_id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.department if user.role != 'admin' else 'N/A' }}</td>
+            <td>{{ user.role.capitalize() }}</td>
+            <td>
+                {% if user.role == 'investigator' %}
+                <button class="{{ 'deactivate-button' if user.active else 'activate-button' }}" 
+                        onclick="toggleActivity({{ user.user_id }}, '{{ user.role }}')">
+                    {{ 'Deactivate' if user.active else 'Activate' }}
+                </button>
+                {% else %}
+                N/A
+                {% endif %}
+            </td>
+            <td>
+                <a href="{{ url_for('update_user', role=user.role, user_id=user.user_id) }}" class="edit-button">
+                    Edit
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br><br>
+<div class="add-user-form">
+    <h3>Add New User</h3>
+    <form action="{{ url_for('add_user') }}" method="POST">
+        <label for="role">Role:</label>
+        <select id="role" name="role" required onchange="toggleFields()">
+            <option value="" disabled selected>Select Role</option>
+            <option value="student">Student</option>
+            <option value="investigator">Investigator</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <div id="common-fields">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div id="mobile-field" style="display: none;">
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile">
+        </div>
+
+        <div id="department-field" style="display: none;">
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Pharmacy" >Pharmancy</option>
+                <option value="Science" >Science</option>
+                <option value="Business Administration">Business Administration</option>
+                <option value="Commerce" >Commerce</option>
+            </select>
+        </div>
+
+        <div id="year-field" style="display: none;">
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year">
+        </div>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="button">Add User</button>
+    </form>
+</div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script>
+    function toggleFields() {
+        const role = document.getElementById('role').value;
+        const mobileField = document.getElementById('mobile-field');
+        const departmentField = document.getElementById('department-field');
+        const yearField = document.getElementById('year-field');
+
+        if (role === 'student') {
+            mobileField.style.display = 'block';
+            departmentField.style.display = 'block';
+            yearField.style.display = 'block';
+        } else if (role === 'investigator') {
+            mobileField.style.display = 'block';
+            departmentField.style.display = 'block';
+            yearField.style.display = 'none';
+        } else if (role === 'admin') {
+            mobileField.style.display = 'none';
+            departmentField.style.display = 'none';
+            yearField.style.display = 'none';
+        }
+    }
+
+    // Initialize the form fields on page load
+    document.addEventListener('DOMContentLoaded', toggleFields);
+</script>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

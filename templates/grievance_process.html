@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grievance Process</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>Grievance Process</h1>
+        <p>Understand the steps involved in resolving grievances.</p>
+    </header>
+    <main class="main-content">
+        <section class="policy-section">
+            <h2>Steps to Submit a Grievance</h2>
+            <ol>
+                <li>Log in to your account.</li>
+                <li>Navigate to the "Submit Grievance" section.</li>
+                <li>Fill out the grievance form with all required details.</li>
+                <li>Attach any supporting evidence, if applicable.</li>
+                <li>Submit the grievance and track its status in your dashboard.</li>
+            </ol>
+        </section>
+        <section class="policy-section">
+            <h2>Resolution Process</h2>
+            <p>Once submitted, your grievance will be assigned to an investigator who will gather evidence, analyze the issue, and provide a resolution.</p>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 Lachoo Memorial College of Science & Technology. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

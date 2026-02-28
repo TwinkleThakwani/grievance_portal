@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <header class="header">
+        <h1>Contact Us</h1>
+        <p>We’re here to help. Reach out to us with your questions or concerns.</p>
+    </header>
+    <main class="main-content">
+        <section class="contact-info">
+            <h2>Contact Information</h2>
+            <p>Email: <a href="mailto:help@collegegrievance.com" class="anchor">help@collegegrievance.com</a></p>
+            <p>Email: <a href="mailto:support@college.com" class="anchor">support@college.com</a></p>
+            <p>Phone: +1 234 567 8900</p>
+            <p>Address: Lachoo Memorial College, Jodhpur, Rajasthan, India</p>
+        </section><br>
+        <section class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form action="{{ url_for('form_submit') }}" class="form-container" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Grievance Management System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

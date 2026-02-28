@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Complaints</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <header class="header">
+        <h1>View Complaints</h1>
+    </header>
+    <main class="main-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Grievance ID</th>
+                    <th>Department</th>
+                    <th>Incident Date</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Verdict</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grievance in grievances %}
+                <tr>
+                    <td>{{ grievance.grievance_id }}</td>
+                    <td>{{ grievance.department }}</td>
+                    <td>{{ grievance.incident_date }}</td>
+                    <td>{{ grievance.status }}</td>
+                    <td>{{ grievance.priority }}</td>
+                    <td>{{ grievance.verdict }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

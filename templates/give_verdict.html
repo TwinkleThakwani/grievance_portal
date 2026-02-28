@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Verdict</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+        <h1>Give Verdict</h1>
+        <p>Review grievances and provide a final verdict.</p>
+    </header>
+    <main class="main-content">
+        <section class="grievances-section">
+            <h2>Pending Grievances</h2>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Grievance ID</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Incident Date</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for grievance in grievances %}
+                    <tr>
+                        <td>{{ grievance.grievance_id }}</td>
+                        <td>{{ grievance.description }}</td>
+                        <td>{{ grievance.type_of_grievance }}</td>
+                        <td>{{ grievance.incident_date }}</td>
+                        <td>{{ grievance.incident_location }}</td>
+                        <td>{{ grievance.status }}</td>
+                        <td>{{ grievance.priority }}</td>
+                        <td>
+                            <form action="{{ url_for('submit_verdict') }}" method="POST">
+                                <input type="hidden" name="grievance_id" value="{{ grievance.grievance_id }}">
+
+                                <select name="status" required>
+                                    <option value="Resolved">Resolved</option>
+                                    <option value="Unresolved">Unresolved</option>
+                                    <option value="In Progress">Referred</option>
+                                    <option value="Closed">Closed</option>
+                                </select>
+                                <button type="submit" class="button">Submit</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

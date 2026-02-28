@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submitted</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <style>
+        .confirmation-message {
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Form Submitted Successfully</h1>
+    </header>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="animation-switch-wrapper">
+        <label class="animation-switch">
+            <input type="checkbox" id="animation-toggle" onchange="toggleAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <main class="main-content">
+        <div class="confirmation-message">
+            <h2>Thank you for submitting your complaint.</h2>
+            <p>Your complaint has been successfully submitted and will be reviewed by our team. You will be contacted for further investigation if necessary.</p>
+            <p>If you have any questions or need further assistance, please contact us at <a href="mailto:support@college.com" class="anchor">support@college.com</a>.</p>
+            <button class="button" style="text-align: center; font-weight: 800; font-size: 0.65em;" onclick="redirectTo('{{ dashboard_url }}')">Return to Dashboard</button>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

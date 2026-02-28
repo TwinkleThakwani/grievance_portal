@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Assigned Complaints</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <header class="header">
+        <h1>View Assigned Complaints</h1>
+        <p>Below are the complaints assigned to you.</p>
+    </header>
+    <div class="main-content">
+        <h2>Filter Complaints</h2>
+       <br>
+    <form method="GET" action="{{ url_for('view_assigned_complaints') }}">
+        <div class="nav">
+        <label for="type_of_grievance">Type of Grievance:</label>
+        <select id="type_of_grievance" name="type_of_grievance">
+            <option value="" disabled>All</option>
+            <option value="Academic">Academic</option>
+            <option value="Non-Academic">Non-Academic</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+        </select><br><br>
+        <label for="status">Status:</label>
+        <select id="status" class="status">
+            <option value="" disabled>All</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Under Review">Under Review</option>
+            <option value="Resolved">Resolved</option>
+        </select><br><br>
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority">
+            <option value="" disabled>All</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+    </div>
+        <button type="submit" class="button">Filters</button>
+    </form>
+    {% if complaints %}
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Grievance ID</th>
+                    <th>Student ID</th>
+                    <th>Incident Location</th>
+                    <th>Incident Date</th>
+                    <th>Incident Time</th>
+                    <th>Description</th>
+                    <th>Respondent</th>
+                    <th>Type of Grievance</th>
+                    <th>Witness</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for complaint in complaints %}
+                <tr>
+                    <td>{{ complaint.grievance_id }}</td>
+                    <td>{{ complaint.student_id }}</td>
+                    <td>{{ complaint.incident_location }}</td>
+                    <td>{{ complaint.incident_date }}</td>
+                    <td>{{ complaint.incident_time }}</td>
+                    <td>{{ complaint.description }}</td>
+                    <td>{{ complaint.respondent }}</td>
+                    <td>{{ complaint.type_of_grievance }}</td>
+                    <td>{{ complaint.witness }}</td>
+                    <td>{{ complaint.priority }}</td>
+                    <td>{{ complaint.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No complaints assigned to you.</p>
+    {% endif %}
+</div>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

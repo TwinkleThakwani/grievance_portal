@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="hamburger-menu">
+        <i class="fas fa-bars" onclick="toggleMenu()"></i>
+    </div>
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="{{ url_for('index') }}" style="color: white;"><i class="fas fa-home"></i><span> Home</span></a></li>
+            <li><a href="{{ url_for('about_us')}}"style="color: white;"><i class="fas fa-info-circle"></i><span> About Us</span></a></li>
+            <li><a href="{{ url_for('case_history')}}"style="color: white;"><i class="fas fa-history"></i><span> Case History</span></a></li>
+           
+            <li><a href="{{ url_for('counseling')}}"style="color: white;"><i class="fas fa-user-friends"></i><span> Counseling</span></a></li>
+            <li><a href="{{ url_for('logout')}}"style="color: white;"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a></li>
+            <li><a href="{{ url_for('guidelines')}}"style="color: white;"><i class="fas fa-book"></i><span> Guidelines</span></a></li>
+    
+    </ul>
+    </nav>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div>
+    </div>
+    <header class="header">
+        <h1>Admin Dashboard</h1>
+        <p>Welcome to the Admin Dashboard. Here you can manage complaints, user accounts, and system settings.</p>
+    </header>
+    <main class="main-content">
+        <div class="info-cards" style="
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 1.5rem; /* Space between cards */
+            padding: 2rem;
+        ">
+            <div class="info-card" onclick="redirectTo('assigned.html')">
+                <i class="fas fa-tasks fa-2x"></i>
+                <h3>Analyse Investigations</h3>
+                <p>View all assigned and investigated complaints.</p>
+                <button class="button">View Complaints</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('view_investigations.html')">
+                <i class="fas fa-search fa-2x"></i>
+                <h3>Give Verdict</h3>
+                <p>Review investigation reports and update the verdict.</p>
+                <button class="button">Give Verdict</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('user_management.html')">
+                <i class="fas fa-users fa-2x"></i>
+                <h3>User Management</h3>
+                <p>Manage user accounts and permissions.</p>
+                <button class="button">Manage Users</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('generate_reports.html')">
+                <i class="fas fa-chart-bar fa-2x"></i>
+                <h3>Reports</h3>
+               <p>View reports on complaints and resolutions.</>
+                <button class="button">View Reports</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('assign_investigators.html')">
+                <i class="fas fa-user-shield fa-2x"></i>
+                <h3>Assign Investigators</h3>
+                <p>Assign investigators to specific complaints.</p>
+                <button class="button">Assign Investigators</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('priority_selector.html')">
+                <i class="fas fa-exclamation-circle fa-2x"></i>
+                <h3>Set Priority</h3>
+                <p>Set the priority level for each complaint.</p>
+                <button class="button">Set Priority</button>
+            </div>
+
+<!--             <div class="info-card" onclick="redirectTo('send_notifications.html')">
+                <i class="fas fa-bell fa-2x"></i>
+                <h3>Send Notifications</h3>
+                <p>Send notifications to users regarding updates on their complaints.</p>
+                <button class="button">Send Notifications</button>
+            </div> -->
+<!--             <div class="info-card" onclick="redirectTo('system_settings.html')">
+                <i class="fas fa-cogs fa-2x"></i>
+                <h3>System Settings</h3>
+                <p>Manage system settings and configurations.</p>
+                <button class="button">System Settings</button>
+            </div> -->
+            <div class="info-card" onclick="redirectTo('dashboard_analytics.html')">
+                <i class="fas fa-search fa-2x"></i>
+                <h3>Dashboard Analytics</h3>
+                <p>Review investigator performances and analyze graphs.</p>
+                <button class="button">View Investigations</button>
+            </div>
+            <div class="info-card" onclick="redirectTo('view_feedback.html')">
+                <i class="fas fa-comments fa-2x"></i>
+                <h3>View Feedback</h3>
+                <p>View feedback submitted by students regarding grievances and the system.</p>
+                <button class="button">View Feedback</button>
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

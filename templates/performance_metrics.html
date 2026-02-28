@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Metrics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <style>
+        .chart-container {
+            width: 400px; /* Adjust the width */
+            height: 300px; /* Adjust the height */
+            margin: 20px auto; /* Center the chart */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Performance Metrics</h1>
+        <p>View your performance metrics and workload.</p>
+    </header>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <main class="main-content">
+        <!-- Investigator Performance Chart -->
+        <h2>Investigator Performance</h2>
+        <div class="chart-container">
+            <canvas id="performanceMetricsChart"></canvas>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+    <script>
+        // Dummy data for Investigator Performance
+        const performanceData = [
+            { month: 'January', resolved_cases: 5, avg_resolution_time: 3 },
+            { month: 'February', resolved_cases: 8, avg_resolution_time: 4 },
+            { month: 'March', resolved_cases: 6, avg_resolution_time: 2 },
+            { month: 'April', resolved_cases: 10, avg_resolution_time: 5 }
+        ];
+
+        // Map the data to labels and datasets
+        const labels = performanceData.map(item => item.month);
+        const resolvedCases = performanceData.map(item => item.resolved_cases);
+        const avgResolutionTime = performanceData.map(item => item.avg_resolution_time);
+
+        // Render Investigator Performance Chart
+        const ctx = document.getElementById('performanceMetricsChart').getContext('2d');
+        const performanceMetricsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Resolved Cases',
+                        data: resolvedCases,
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Avg Resolution Time (Days)',
+                        data: avgResolutionTime,
+                        backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

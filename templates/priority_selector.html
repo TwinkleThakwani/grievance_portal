@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Selector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <script>
+        window.onload = function() {
+            const message = new URLSearchParams(window.location.search).get('message');
+            if (message) {
+                alert(message);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="animation-switch-wrapper">
+        <label class="animation-switch">
+            <input type="checkbox" id="animation-toggle" onchange="toggleAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div>
+    </div>
+    <header class="header">
+        <h1>Priority Selector</h1>
+        <p>Update the priority of grievances.</p>
+    </header>
+    
+    <div class="form-container">
+        <form action="{{ url_for('update_priority') }}" method="POST">
+            <label for="grievance_id">Grievance ID:</label>
+            <select id="grievance_id" name="grievance_id" required>
+                {% for grievance in grievances %}
+                <option value="{{ grievance.grievance_id }}">{{ grievance.grievance_id }} - {{ grievance.description }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority" required>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            
+            <button type="submit" class="button">Update Priority</button>
+        </form>
+    </div>
+  <script src="{{ url_for('static', filename='tr.js') }}"></script>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

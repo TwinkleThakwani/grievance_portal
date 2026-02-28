@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about the grievance system.</p>
+    </header>
+    <main class="main-content">
+        <section class="policy-section">
+            <h2>General Questions</h2>
+            <ul>
+                <li><strong>Q:</strong> How do I submit a grievance?<br><strong>A:</strong> Log in to your account and fill out the grievance submission form.</li>
+                <li><strong>Q:</strong> Can I track the status of my grievance?<br><strong>A:</strong> Yes, you can track the status in your dashboard.</li>
+                <li><strong>Q:</strong> Who can access my grievance details?<br><strong>A:</strong> Only authorized investigators and administrators.</li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 Lachoo Memorial College of Science & Technology. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

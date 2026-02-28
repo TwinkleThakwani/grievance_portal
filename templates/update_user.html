@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>Update {{ role.capitalize() }} Profile</h1>
+    </header>
+    <main class="main-content">
+        <form action="{{ url_for('update_user', role=role, user_id=user.user_id) }}" method="POST" class="update-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ user.name }}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required>
+
+
+
+            {% if role != 'admin' %}
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="Computer Science" {% if user.department == 'Computer Science' %}selected{% endif %}>Computer Science</option>
+                <option value="Mechanical Engineering" {% if user.department == 'Mechanical Engineering' %}selected{% endif %}>Mechanical Engineering</option>
+                <option value="Electrical Engineering" {% if user.department == 'Electrical Engineering' %}selected{% endif %}>Electrical Engineering</option>
+                <option value="Civil Engineering" {% if user.department == 'Civil Engineering' %}selected{% endif %}>Civil Engineering</option>
+                <option value="Business Administration" {% if user.department == 'Business Administration' %}selected{% endif %}>Business Administration</option>
+            </select>
+            {% if role != 'investigator' %}
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" value="{{ user.year }}">
+            {% endif %}
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter new password (optional)">
+
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" value="{{ user.mobile }}" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male" {% if user.gender == 'Male' %}selected{% endif %}>Male</option>
+                <option value="Female" {% if user.gender == 'Female' %}selected{% endif %}>Female</option>
+                <option value="Other" {% if user.gender == 'Other' %}selected{% endif %}>Other</option>
+            </select>
+            {% endif %}
+            <button type="submit" class="button">Update</button>
+        </form>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

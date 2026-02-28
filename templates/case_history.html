@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <header class="header">
+        <h1>Case History</h1>
+        <p>Explore how the grievance system has resolved past cases flawlessly.</p>
+    </header>
+    <main class="main-content">
+        <section class="iconic-story">
+            <h2>Iconic Case: Library Access Issue</h2>
+            <div class="story-container">
+                <div class="story-image">
+                    <img src="{{ url_for('static', filename='library_issue.jpg') }}" alt="Library Access Issue">
+                </div>
+                <div class="story-description">
+                    <p>
+                        In 2024, a group of students raised a grievance about limited library access hours, which affected their ability to prepare for exams. The grievance system quickly assigned an investigator to the case. After gathering feedback from students and faculty, the system facilitated a resolution by extending library hours during exam periods. This change benefited over 1,000 students and improved academic performance across the college.
+                    </p>
+                    <p>
+                        <strong>Resolution:</strong> Extended library hours during exams.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="past-cases">
+            <h2>Past Cases</h2>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Case ID</th>
+                        <th>Grievance Type</th>
+                        <th>Description</th>
+                        <th>Resolution</th>
+                        <th>Date Resolved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Academic</td>
+                        <td>Grade discrepancy in final exams.</td>
+                        <td>Grades corrected after re-evaluation.</td>
+                        <td>2024-01-15</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Facility</td>
+                        <td>Broken air conditioning in classrooms.</td>
+                        <td>Repaired within 48 hours.</td>
+                        <td>2024-02-10</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Disciplinary</td>
+                        <td>Bullying incident reported in the hostel.</td>
+                        <td>Strict action taken against offenders.</td>
+                        <td>2024-03-05</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Infrastructure</td>
+                        <td>Leaking roof in the auditorium.</td>
+                        <td>Roof repaired and waterproofed.</td>
+                        <td>2024-04-20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="how-it-works">
+            <h2>How the System Helps</h2>
+            <div class="how-it-works-container">
+                <div class="vector-image">
+                    <img src="{{ url_for('static', filename='grievance_process_vector.jpg') }}" alt="Grievance Process">
+                </div>
+                <div class="process-description">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Students submit grievances online through a user-friendly interface.</li>
+                        <li><i class="fas fa-check-circle"></i> Grievances are automatically assigned to investigators based on priority.</li>
+                        <li><i class="fas fa-check-circle"></i> Investigators gather evidence and submit reports.</li>
+                        <li><i class="fas fa-check-circle"></i> Resolutions are implemented promptly, ensuring student satisfaction.</li>
+                        <li><i class="fas fa-check-circle"></i> Feedback is collected to improve the system continuously.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+
+</body>
+</html>

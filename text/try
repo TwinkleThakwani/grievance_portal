@@ -1,0 +1,99 @@
+**Data Flow Diagrams (DFDs) for Grievance Management System**
+
+### **Level 0 (Context Diagram)**
+
+- **External Entities:**
+  - Students
+  - Investigators
+  - Admins
+- **System:** Grievance Management System
+- **Interactions:**
+  - Students register and submit grievances.
+  - Investigators handle and update investigations.
+  - Admins manage users and oversee grievances.
+
+### **Level 1 DFD (Main Processes)**
+
+1. **Student Registration & Authentication**
+
+   - Input: Student details
+   - Output: Student account creation
+   - Data Store: `students`
+
+2. **Grievance Submission**
+
+   - Input: Incident details, evidence, respondent, witness
+   - Output: Grievance record
+   - Data Store: `grievances`
+
+3. **Investigator Assignment**
+
+   - Input: Grievance ID
+   - Output: Assigned investigator
+   - Data Store: `grievance_assignments`
+
+4. **Investigation Processing**
+
+   - Input: Grievance details, investigator actions
+   - Output: Investigation status update
+   - Data Store: `investigations`
+
+5. **Admin Management**
+
+   - Input: Admin authentication, user management actions
+   - Output: Updated system access, account modifications
+   - Data Store: `admins`
+
+6. **Feedback Collection**
+
+   - Input: Grievance resolution feedback
+   - Output: Feedback records
+   - Data Store: `feedback`
+
+### **Level 2 DFDs (Detailed Processes)**
+
+#### **1. Student Registration & Authentication**
+
+- **Process 1.1:** Student enters details → System verifies → Account created
+- **Process 1.2:** Login credentials checked → Grant or deny access
+
+#### **2. Grievance Submission**
+
+- **Process 2.1:** Student submits grievance → System logs details → Assigns ID
+- **Process 2.2:** Evidence uploaded → Stored with grievance record
+
+#### **3. Investigator Assignment**
+
+- **Process 3.1:** Admin reviews grievance → Assigns investigator
+- **Process 3.2:** Investigator notified → Investigation started
+
+#### **4. Investigation Processing**
+
+- **Process 4.1:** Investigator reviews evidence → Collects additional data
+- **Process 4.2:** Investigator updates status → Admin oversight
+- **Process 4.3:** Verdict reached → Report generated
+
+#### **5. Admin Management**
+
+- **Process 5.1:** Admin adds/modifies users → Updates stored data
+- **Process 5.2:** System logs actions for security
+
+#### **6. Feedback Collection**
+
+- **Process 6.1:** Students rate grievance resolution → System stores feedback
+- **Process 6.2:** Admin reviews feedback → Updates policies accordingly
+
+### **DFD Representation**
+
+- **Entities** → Rectangles
+- **Processes** → Circles
+- **Data Stores** → Parallel lines
+- **Data Flow** → Arrows
+
+This structure ensures a clear, accurate DFD representation of your system.
+
++-------------------+       +-------------------+       +-------------------+
+
+
+
+|  Student Registration & Authentication  |       |  Grievance Submission  |       |

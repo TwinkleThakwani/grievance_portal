@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>My Profile</h1>
+        <p>View your profile information.</p>
+    </header>
+    <div class="profile-container">
+        <h2>Current Profile Details</h2>
+        <table class="styled-table">
+            <tr>
+                <th style="text-align: left;">Field</th>
+                <th style="text-align: left;">Value</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{ profile.name }}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{ profile.email }}</td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>{{ profile.mobile }}</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>{{ profile.gender }}</td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td>{{ profile.department }}</td>
+            </tr>
+            {% if role != 'investigator' %}
+            <tr>
+                <td>Year</td>
+                <td>{{ profile.year }}</td>            
+              
+            </tr>
+            {% endif %}
+        </table>
+    </div>
+       
+    
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

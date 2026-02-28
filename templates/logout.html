@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged Out</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <h1>You have been logged out</h1>
+        <p>Thank you for using the College Anti-Grievance System.</p>
+        <a href="{{ url_for('index') }}" class="button">Go to Home</a>
+    </div>
+</body>
+</html>

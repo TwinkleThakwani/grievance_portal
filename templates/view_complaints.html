@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Complaints</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>Complaint History</h1>
+        <p style="font-size: 1.1rem;">Here you can view your existing complaints.</p>
+    </header>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Description</th>
+                    <th>Student ID</th>
+                    <th>Grievance ID</th>
+                    <th>Type</th>
+                    <th>Respondent</th>
+                    
+                    <th>Incident Time</th>
+                    <th>Incident Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for complaint in complaints %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ complaint.description }}</td>
+                    <td>{{ complaint.reg_no }}</td>
+                    <td>{{ complaint.grievance_id }}</td>
+                    <td>{{ complaint.type_of_grievance }}</td>
+                    <td>{{ complaint.respondent }}</td>
+                    
+                    <td>{{ complaint.incident_time }}</td>
+                    <td>{{ complaint.incident_location }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counseling</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+     <div class="nav-container">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='orange_lo1.png') }}" alt="Institute Logo" class="logo light-mode">
+        <img src="{{ url_for('static', filename='teal_lo.png') }}" alt="Institute Logo" class="logo dark-mode">
+    </div>
+    <nav id="nav-links">
+        
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about_us') }}">About Us</a>
+        <a href="{{ url_for('counseling') }}">Counseling</a>
+
+        <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a>
+        <a href="{{ url_for('student_privileges') }}">Student Services</a>
+        <a href="{{ url_for('anti_ragging') }}">Anti-Ragging</a></li>
+<a href="{{ url_for('grievance_committee') }}">Grievance Redressal Committee</a></li>
+
+    </nav>
+</div>
+    <header class="header">
+        <h1>Counseling Services</h1>
+        <p>Supporting your mental health and academic success.</p>
+    </header>
+    <main class="main-content">
+        <section class="functions">
+            <h2>Our Services</h2>
+            <ul>
+                <li>One-on-one counseling sessions</li>
+                <li>Workshops on stress management</li>
+                <li>Academic guidance and career counseling</li>
+                <li>Group therapy sessions for peer support</li>
+                <li>Time management and productivity workshops</li>
+                <li>Conflict resolution and interpersonal skills training</li>
+                <li>Support for students with disabilities</li>
+                <li>Guidance for exam preparation and overcoming test anxiety</li>
+                <li>Career planning and resume-building assistance</li>
+                <li>Workshops on mindfulness and meditation</li>
+                <li>Support for handling homesickness and cultural adjustment</li>
+                <li>Crisis intervention and emergency support</li>
+            </ul>
+        </section>
+        <section class="appointment-form">
+            <h2>Book an Appointment</h2>
+            <form action="{{ url_for('form_submit') }}" class="form-container" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required>
+                <button type="submit" class="button">Book Appointment</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Grievance Management System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Investigations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <script>
+        window.onload = function() {
+            const message = new URLSearchParams(window.location.search).get('message');
+            if (message) {
+                alert(message);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>Analyse and Give Verdict</h1>
+        <p>Review investigation reports and update the verdict.</p>
+    </header>
+    <main class="main-content">
+        <div class="investigations-container">
+            {% for investigation in investigations %}
+            <div class="investigation-card">
+                <h3>Grievance ID: {{ investigation.grievance_id }}</h3>
+                <p><strong>Investigator ID:</strong> {{ investigation.investigator_id }}</p>
+
+                <p><strong>Priority:</strong> {{ investigation.priority }}</p>
+                <p><strong>Status:</strong> {{ investigation.status }}</p>
+                <p><strong>Report:</strong> {{ investigation.report }}</p>
+                <form action="{{ url_for('update_verdict') }}" method="POST">
+                    <input type="hidden" name="grievance_id" value="{{ investigation.grievance_id }}">
+                    <label for="verdict">Verdict:</label>
+                    <select id="verdict" name="verdict" required>
+                        <option value="Substantiated">Substantiated</option>
+                        <option value="Unsubstantiated">Unsubstantiated</option>
+                        <option value="Inconclusive">Inconclusive</option>
+                        <option value="Resolved">Resolved</option>
+                        <option value="Dismissed">Dismissed</option>
+                        <option value="Referred">Referred</option>
+                    </select>
+                    <button type="submit" class="button">Update Verdict</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

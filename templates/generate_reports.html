@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Reports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+        <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>Reports</h1>
+        <p>View detailed reports of grievances and investigations.</p>
+    </header>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Grievance ID</th>
+                    <th>Student ID</th>
+                    <th>Incident Date</th>
+                    <th>Incident Location</th>
+                    <th>Type of Grievance</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Verdict</th>
+                    <th>Report</th>
+                    <th>Enquiry</th>
+                    <th>Investigator</th>
+                    <th>Resolution Time (Days)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for investigation in investigations %}
+                <tr>
+                    <td>{{ investigation.grievance_id }}</td>
+                    <td>{{ investigation.student_id }}</td>
+                    <td>{{ investigation.incident_date }}</td>
+                    <td>{{ investigation.incident_location }}</td>
+                    <td>{{ investigation.type_of_grievance }}</td>
+                    <td>{{ investigation.status }}</td>
+                    <td>{{ investigation.priority }}</td>
+                    <td>{{ investigation.verdict }}</td>
+                    <td>{{ investigation.report }}</td>
+                    <td>{{ investigation.enquiry }}</td>
+                    <td>{{ investigation.investigator_name }}</td>
+                    <td>{{ investigation.resolution_time or 'N/A' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

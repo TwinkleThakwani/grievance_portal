@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Investigation Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <header class="header">
+        <h1>Submit Investigation Report</h1>
+        <p>Fill out the form below to submit your investigation report.</p>
+    </header>
+    <main class="main">
+    <div class="form-container">
+        <form action="{{ url_for('submit_report') }}" method="POST" class="form">
+
+            <div class="inputBox">
+                <i>Grievance ID</i>
+                <select name="grievance_id" required>
+                    <option value="" disabled selected>Select Grievance</option>
+                    {% for grievance in grievances %}
+                        <option value="{{ grievance.grievance_id }}">{{ grievance.grievance_id }}. {{ grievance.description }}</option>
+                    {% endfor %}
+                </select>
+                
+            </div>
+            <div class="inputBox">
+                <i>Status</i>
+                <select name="status" required>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                
+            </div>
+        
+            <div class="inputBox">
+                <i>Priority</i>
+                <select name="priority" required>
+                    <option value="Profile" disabled>Select Profile</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Urgent">Urgent</option>
+                </select>
+                
+            </div>
+        
+            <div class="inputBox">
+                <i>Enquiry Details</i>
+                <textarea name="enquiry" required placeholder="Enter enquiry details"></textarea>
+                
+            </div>
+        
+            <div class="inputBox">
+                <i>Investigation Report</i>
+                <textarea name="report" required placeholder="Enter investigation report"></textarea>
+               
+            </div>
+        
+            <div class="inputBox">
+                <input type="submit" class="button" value="Submit Report">
+            </div>
+        </form>
+    </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

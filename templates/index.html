@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <style>
+.header.landing-bg {
+    background:
+        linear-gradient(rgba(223, 249, 255, 0.87), rgba(219, 246, 255, 0.833)),
+        url('{{ url_for("static", filename="campus.jpg") }}') center center/cover no-repeat;
+    color: #fff;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    [data-theme="dark"] .header.landing-bg {
+    background:
+        linear-gradient(
+            rgba(0, 7, 15, 0.744), 
+            rgba(1, 33, 31, 0.756)
+        ),
+        url('{{ url_for("static", filename="campus.jpg") }}') center center/cover no-repeat;
+    color: #fff;
+}
+
+</style>
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+ <div class="nav-container">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='orange_lo1.png') }}" alt="Institute Logo" class="logo light-mode">
+        <img src="{{ url_for('static', filename='teal_lo.png') }}" alt="Institute Logo" class="logo dark-mode">
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+    </button>
+    <nav id="nav-links">
+        
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about_us') }}">About Us</a>
+        <a href="{{ url_for('counseling') }}">Counseling</a>
+
+        <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a>
+        <a href="{{ url_for('student_privileges') }}">Student Services</a>
+
+
+    </nav>
+</div>
+<script src="{{ url_for('static', filename='nav.js') }}"></script>
+    
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+ 
+  <header class="header landing-bg">
+       
+           
+            
+         <h1>Student Grievance Redressal System</h1>
+        <br>
+        <p><i>"Your Voice, Your Rights: A Dedicated Platform for Resolving Student Concerns with Transparency and Care"</i></p>
+ 
+    </header>   
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h2>College Offerings</h2>
+                    <p>Explore our state-of-the-art facilities, academic programs, and extracurricular activities.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h2>Student Privileges</h2>
+                    <p>Learn about the privileges and support systems available to our students.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-user-secret"></i>
+                    <h2>Case History & Research</h2>
+            <p>Read about how we’ve resolved grievances and upheld justice for our students.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-comments"></i>
+                    <h2>Motivation & Counseling</h2>
+            <p>Access resources to stay motivated and maintain mental well-being.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-comments"></i>
+                    <h2>Contact Us for Counselling</h2>
+                    <p>Have questions? Reach out to us at <a href="mailto:help@collegegrievance.com" class="anchor">help@collegegrievance.<br>com</a>.</p>
+                </div>
+            </div>
+    
+            <main class="main-content">
+                <div class="content-wrapper">
+                    <!-- Intro Section -->
+                    <section class="intro">
+                        <h2>Welcome to the Grievance Portal</h2>
+                        <p>
+                            The Student Grievance Redressal System is designed to provide a transparent and efficient way for students to raise their concerns and for the administration to address them promptly. Our goal is to ensure a supportive and inclusive environment for everyone. Grievance Redressal System is a vital part of any administration. It is the responsibility of the College Administration to provide a secure and contented environment to all its Staff and Students. The Grievance Redressal Committee has been formed in the College as per the UGC guidelines to redress the grievances of both the staff and the students. Since the inception of the college, the Committee has been under the direct purview of the Principal.
+             
+                            The grievances received by the Principal are forwarded to the concerned Committee members who look into the problems depending upon the seriousness of the issue.
+          
+                        </p><p> The Committee has been continuously striving to take the best efforts possible to create a harmonious and conducive atmosphere for everyone in question.</p>
+                        </p><p> Staff can mail their grievance at <a href="mailto:feedback@lachoo.edu.in" class="anchor">feedback@lachoo.edu.in</a>.
+                        </p>
+                    </section>
+
+
+                    <!-- Quick Links Section -->
+                    <aside class="quick-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="https://lachoomemorial.org/self-disclosure/">Useful Downloads</a></li>
+                            <li><a href="{{ url_for('right_to_information') }}">Right to Information</a></li>
+                            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+                            <li><a href="{{ url_for('terms_of_service') }}">Terms of services</a></li>
+                            <li><a href="{{ url_for('faqs') }}">FAQs</a></li>
+                            <li><a href="{{ url_for('grievance_process') }}">Grievance Process</a></li>
+                            <li><a href="{{ url_for('case_history') }}">Case History</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <section class="functions">
+                    <h2>Functions of the Grievance Redressal Committee</h2>
+                    <ul>
+                        <li>To ensure that all grievances are redressed in a time-bound manner.</li>
+                        <li>To accept written grievances from students and staff related to the system.</li>
+                        <li>To create and implement a mechanism to handle the reported grievances.</li>
+                        <li>To forward the findings to the Management if necessary for further action.</li>
+                        <li>To listen, record and scrutinize the grievances submitted to them by the Staff and Students and take necessary steps immediately.</li>
+                        <li>To attend to the grievances based on the authenticity and gravity of the criticisms made.</li>
+                        <li>To represent the grievances to the concerned section which may include maintenance, transport, academic, amenities etc.</li>
+                        <li>To convene periodical meetings to discuss whether the grievances have been settled.</li>
+                        <li>To make a follow-up of these matters at regular intervals till their final disposal.</li>
+                        <li>To maintain strict confidentiality, if necessary.</li>
+                    </ul>
+                </section>
+        <!-- Login Form -->
+        <section class="login-section">
+            <div class="animated-background">
+
+                <!-- Reduced number of spans for better performance -->
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <!-- Add more spans as needed, but consider reducing the total number -->
+            </div>
+                            
+            <div class="signin form-container">
+                <div class="animated-border-box"></div>
+                <div class="animated-border-box-glow"></div>
+                    <h1>Sign In</h1>
+                    <form id="loginForm">
+                    <!--     <div class="inputBox">
+                            <input type="text" id="username" name="username" required>
+                            <i>Username</i>
+                        </div>  -->
+                        <div class="inputBox">
+                            <input type="email" id="email" name="email" required>
+                            <i>Email</i>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" id="password" name="password" required>
+                            <i>Password</i>
+                        </div>
+                        <div class="inputBox select-box">
+                        
+                            <select id="role" name="role" required>
+                                <option value="" disabled selected>User Type</option>
+                                <option value="student">Student</option>
+                                <option value="admin">Admin</option>
+                                <option value="investigator">Investigator</option>
+                            </select>
+                        </div>
+                  
+                        <div class="inputBox">
+                            <input type="submit" value="Login">
+                        </div>
+                
+                    </form>
+             
+            
+            </div>
+        </section>
+        </main>
+ 
+
+
+
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+    <script> document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const data = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+            role: formData.get('role')
+        };
+        fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.role === 'student') {
+                window.location.href = 'student_dashboard.html';
+            } else if (data.role === 'admin') {
+                window.location.href = 'admin_dashboard.html';
+            } else if (data.role === 'investigator') {
+                window.location.href = 'investigator_dashboard.html';
+            } else {
+                alert('Invalid credentials');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });</script>
+          <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><a href="https://lachoomemorial.org/"></a><i class="fas fa-envelope"></i>Lachoo Memorial College</a></p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                </div>
+                <div class="footer-section">
+                    <h3>References</h3>
+                    <a href="#"><i class="fas fa-chevron-right"></i> FAQ</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Student Handbook</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a>
+                    <a href="{{ url_for('anti_ragging') }}"><i class="fas fa-chevron-right"></i>Anti-Ragging</a></li>
+<a href="{{ url_for('grievance_committee') }}"><i class="fas fa-chevron-right"></i>Grievance Redressal Committee</a></li>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/people/Lachoo-Memorial-College-of-Science-Technology-Autonomous/100064200691972/"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://in.linkedin.com/school/lachoocollege/?trk=public_post_feed-actor-name"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/lachoocollege/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p> 2025 College Grievance Management System. All rights reserved.</p>
+            </div>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+     <div class="nav-container">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='orange_lo1.png') }}" alt="Institute Logo" class="logo light-mode">
+        <img src="{{ url_for('static', filename='teal_lo.png') }}" alt="Institute Logo" class="logo dark-mode">
+    </div>
+    <nav id="nav-links">
+        
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about_us') }}">About Us</a>
+        <a href="{{ url_for('counseling') }}">Counseling</a>
+
+        <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a>
+        <a href="{{ url_for('student_privileges') }}">Student Services</a>
+        <a href="{{ url_for('anti_ragging') }}">Anti-Ragging</a></li>
+<a href="{{ url_for('grievance_committee') }}">Grievance Redressal Committee</a></li>
+
+    </nav>
+</div>
+    <header class="header">
+        <h1>Privacy Policy</h1>
+        <p>Understand how we collect, use, and protect your information.</p>
+    </header>
+    <main class="main-content">
+        <section class="policy-section">
+            <h2>Introduction</h2>
+            <p>
+                Welcome to the Grievance Management System of Lachoo Memorial College of Science & Technology. By using this website, you agree to abide by the terms and conditions outlined in this Privacy Policy. This policy governs the collection, use, and protection of your personal information while using the grievance system.
+            </p>
+        </section>
+        <section class="policy-section">
+            <h2>Information Collection and Use</h2>
+            <ul>
+                <li><strong>Personal Information:</strong> We collect your name, email address, student ID, and contact details when you register or submit a grievance. This information is used solely for addressing and resolving grievances.</li>
+                <li><strong>Grievance Details:</strong> Information related to grievances, including descriptions, evidence, and respondent details, is collected to investigate and resolve grievances effectively.</li>
+                <li><strong>Cookies and Analytics:</strong> We may use cookies and third-party tools like Google Analytics to enhance user experience and analyze website traffic.</li>
+            </ul>
+        </section>
+        <section class="policy-section">
+            <h2>Data Usage</h2>
+            <ul>
+                <li><strong>Purpose:</strong> The collected data is used to process grievances, assign investigators, and provide updates on grievance status.</li>
+                <li><strong>Sharing of Information:</strong> Personal information may be shared with authorized investigators and administrators involved in resolving grievances. We do not sell or share your personal information with third parties for marketing purposes.</li>
+                <li><strong>Public Records:</strong> Certain grievance details may become part of public records, subject to disclosure under relevant regulations.</li>
+            </ul>
+        </section>
+        <section class="policy-section">
+            <h2>Data Security</h2>
+            <ul>
+                <li><strong>Protection Measures:</strong> We employ industry-standard security measures to protect your personal information from unauthorized access, alteration, or disclosure.</li>
+                <li><strong>User Responsibility:</strong> Users are responsible for maintaining the confidentiality of their login credentials and for any activity conducted under their accounts.</li>
+            </ul>
+        </section>
+        <section class="policy-section">
+            <h2>Website Usage</h2>
+            <ul>
+                <li><strong>Content Ownership:</strong> All content on this website, including text, images, and graphics, is the property of Lachoo Memorial College of Science & Technology and is protected by copyright laws.</li>
+                <li><strong>Website Availability:</strong> We strive to keep the website operational at all times. However, we are not responsible for temporary unavailability due to technical issues beyond our control.</li>
+            </ul>
+        </section>
+        <section class="policy-section">
+            <h2>Changes to the Privacy Policy</h2>
+            <p>
+                Lachoo Memorial College of Science & Technology reserves the right to modify this Privacy Policy at any time without prior notice. Users are encouraged to review the policy periodically to stay informed about any updates.
+            </p>
+        </section>
+        <section class="policy-section">
+            <h2>Disclaimer</h2>
+            <ul>
+                <li><strong>Accuracy of Information:</strong> While every effort is made to ensure the accuracy of the information on this website, we do not guarantee its completeness or reliability.</li>
+                <li><strong>Limitation of Liability:</strong> We are not liable for any loss or damage arising from the use of this website or reliance on its content.</li>
+            </ul>
+        </section>
+        <section class="policy-section">
+            <h2>Jurisdiction</h2>
+            <p>
+                This Privacy Policy is governed by the laws of the Union of India. Any disputes arising from the use of this website shall be subject to the exclusive jurisdiction of the courts in Jodhpur, Rajasthan, India.
+            </p>
+        </section>
+        <section class="policy-section">
+            <h2>Contact Us</h2>
+            <p>
+                If you have any questions or concerns about this Privacy Policy, please contact us at:
+            </p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:office@lachoomemorial.org" class="anchor">office@lachoomemorial.org</a></li>
+                <li><strong>Phone:</strong> +91 95098 24232</li>
+                <li><strong>Address:</strong> Lachoo Memorial College of Science & Technology, Sector - A, Shastri Nagar, Jodhpur - 342001, Rajasthan, India</li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 Lachoo Memorial College of Science & Technology. All rights reserved.</p>
+    </footer>
+    
+<script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

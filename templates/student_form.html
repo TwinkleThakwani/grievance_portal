@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Complaint</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+          crossorigin="anonymous">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    </style>    
+</head>
+<body onload="generate()">
+
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+<!--        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>      
+        <div class="shape"></div> --> 
+<!--         <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>    
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div> -->
+
+
+    </div>
+
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="animation-switch-wrapper">
+        <label class="animation-switch">
+            <input type="checkbox" id="animation-toggle" onchange="toggleAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+ 
+    <header class="header">
+        <h1>Student Grievance Portal</h1>
+        <p>Your voice matters. We’re committed to addressing your concerns promptly and effectively.</p>
+    </header>
+    
+    <div class="info-cards">
+        <div class="info-card" style="--order: 1">
+            <i class="fas fa-clock"></i>
+            <h3>48-Hour Response</h3>
+            <p>Quick initial response to all complaints within 48 hours</p>
+        </div>
+        <div class="info-card" style="--order: 2">
+            <i class="fas fa-check-circle"></i>
+            <h3>100% Resolution</h3>
+            <p>Committed to finding solutions for every grievance</p>
+        </div>
+        <div class="info-card" style="--order: 3">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 Support</h3>
+            <p>Dedicated team to assist you throughout the process</p>
+        </div>
+        <div class="info-card" style="--order: 4">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Confidential</h3>
+            <p>Your privacy and security are our top priority</p>
+        </div>
+    </div>
+    
+    <main class="main-content">
+        <div class="form-container">
+            <h1>Complaint Form</h1>
+            <form id="complaintForm" action="{{ url_for('submit_complaint') }}" method="POST">
+                <input type="hidden" name="access_key" value="86aef203-9604-4dbd-b216-69ffecce5223">
+<!--                 <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="registration_no">Registration No:</label>
+                <input type="text" id="registration_no" name="registration_no" required>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" required>
+                <div class="checkbox-group">
+                    <span>Gender:</span>
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Female" required> Female</label>
+                    <label><input type="radio" name="gender" value="Other" required> Other</label>
+                </div>
+                <div class="checkbox-group">
+                    <span>Department:</span>
+                    <label><input type="radio" name="department" value="Computer Science" required> Computer Science</label>
+                    <label><input type="radio" name="department" value="Commerce" required> Commerce</label>
+                    <label><input type="radio" name="department" value="Business Management" required> Business Management</label>
+                    <label><input type="radio" name="department" value="Science" required> Science</label>
+                    <label><input type="radio" name="department" value="Pharmacy" required> Pharmacy</label>
+                </div>
+                <label for="year">Year of Study:</label>
+                <input type="text" id="year" name="year" required> -->
+                <label for="incident_location">Incident Location:</label>
+                <input type="text" id="incident_location" name="incident_location" required>
+                <label for="incident_date">Incident Date:</label>
+                <input type="date" id="incident_date" name="incident_date" required>
+                <label for="incident_time">Incident Time:</label>
+                <input type="time" id="incident_time" name="incident_time" required>
+                <label for="grievance">Describe your grievance:</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+                <label for="respondent">Respondent (if known):</label>
+                <input type="text" id="respondent" name="respondent" required>
+                <label for="type_of_grievance">Type of Grievance:</label>   
+                <select id="type_of_grievance" name="type_of_grievance" required>
+                    <option value="" disabled selected>Select type of grievance</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Non-Academic">Non-Academic</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                </select>
+                <label for="evidence">Evidence (Paste drive file url if any):</label>
+                <input type="text" id="evidence" name="evidence">
+                <div class="witness-group">
+                    <h3>Witnesses</h3>
+                    <div id="witnesses">
+                        <div class="witness">
+                            <label for="witness">Witness Name:</label>
+                            <input type="text" id="witness" name="witness">
+                         
+                        </div>
+                    </div>
+                    <button type="button" id="addWitness">Add Another Witness</button>
+                </div>
+                <!-- CAPTCHA Section -->
+                <div id="user-input" class="inline">
+                    <input type="text" id="submit" placeholder="Captcha code" required />
+                </div>
+                <div class="inline refresh-icon" onclick="generate()">
+                    <i class="fas fa-sync"></i>
+                </div>
+                <div id="image" class="inline" selectable="False"></div>
+                <button id="verify" type="button" onclick="printmsg()">Verify</button>
+                <p id="key"></p>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> <a href="https://lachoomemorial.org/">Lachoo-Memorial-College-of-Science-Technology</a></p>
+                <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+            </div>
+            <div class="footer-section">
+                <h3>References</h3>
+                <a href="#"><i class="fas fa-chevron-right"></i> FAQ</a>
+                <a href="#"><i class="fas fa-chevron-right"></i> Student Handbook</a>
+                <a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/people/Lachoo-Memorial-College-of-Science-Technology-Autonomous/100064200691972/"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://in.linkedin.com/school/lachoocollege/?trk=public_post_feed-actor-name"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/lachoocollege/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> 2025 College Grievance Management System. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

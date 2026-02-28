@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigator Guidelines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <header class="header">
+        <h1>Investigator Guidelines</h1>
+    </header>
+    <main class="main-content">
+        <h2>Guidelines for Investigators</h2>
+        <ul class="functions">
+            <li>Ensure confidentiality of all complaints and investigations.</li>
+            <li>Submit investigation reports within the assigned deadlines.</li>
+            <li>Communicate with students only through official channels.</li>
+            <li>Maintain professionalism and impartiality during investigations.</li>
+            <li>Follow the institution's policies and procedures for grievance handling.</li>
+            <li>Document all findings, evidence, and communications related to the case.</li>
+            <li>Respect the rights and dignity of all parties involved.</li>
+            <li>Escalate unresolved or sensitive cases to the Grievance Redressal Committee.</li>
+            <li>Attend training sessions and workshops on grievance redressal and ethics.</li>
+            <li>Provide recommendations for systemic improvements if recurring issues are observed.</li>
+        </ul>
+        <br><br>
+        <h2>Investigation Process</h2>
+        <ol>
+            <li>Review the assigned grievance and gather all relevant information.</li>
+            <li>Interview the complainant, respondent, and any witnesses in a neutral setting.</li>
+            <li>Collect and verify documentary or digital evidence.</li>
+            <li>Maintain a detailed log of all actions and communications.</li>
+            <li>Prepare a clear, unbiased report summarizing findings and recommendations.</li>
+            <li>Submit the report through the portal for review by the committee or admin.</li>
+        </ol><br><br>
+        <h2>Best Practices</h2>
+        <ul>
+            <li>Be approachable and empathetic while maintaining boundaries.</li>
+            <li>Use clear, respectful, and non-judgmental language in all communications.</li>
+            <li>Keep all investigation materials secure and accessible only to authorized personnel.</li>
+            <li>Refrain from discussing cases with unauthorized individuals.</li>
+            <li>Seek guidance from senior committee members if in doubt.</li>
+        </ul><br><br>
+        <h2>Support & Resources</h2>
+        <ul>
+            <li>Contact the Grievance Redressal Committee for procedural clarifications.</li>
+            <li>Refer to the <a href="{{ url_for('faqs') }}">FAQs</a> and <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a> for more information.</li>
+            <li>Access counseling or legal support if you experience stress or pressure during investigations.</li>
+        </ul>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

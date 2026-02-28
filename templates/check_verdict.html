@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Verdict</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<script>
+window.onload = function() {
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                alert("{{ message }}");
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+}
+</script>
+
+</head>
+<body>
+    <header class="header">
+        <h1>Check Verdict</h1>
+        <p>Select a grievance to view its verdict and status.</p>
+    </header>
+    <main class="main-content">
+        <form action="{{ url_for('check_verdict_status') }}" method="POST" class="form-container">
+            <label for="grievance_id">Select Grievance:</label>
+            <select id="grievance_id" name="grievance_id" required>
+                <option value="" disabled selected>Select a grievance</option>
+                {% for grievance in grievances %}
+                <option value="{{ grievance.grievance_id }}">{{ grievance.description }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="button">Check Verdict</button>
+        </form>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

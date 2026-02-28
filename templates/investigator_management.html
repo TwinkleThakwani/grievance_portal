@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigator Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+        <h1>Investigator Management</h1>
+        <p>Manage investigators and monitor their performance.</p>
+    </header>
+    <main class="main-content">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Investigator ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Assigned Cases</th>
+                    <th>Average Resolution Time (Days)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for investigator in investigators %}
+                <tr>
+                    <td>{{ investigator.investigator_id }}</td>
+                    <td>{{ investigator.name }}</td>
+                    <td>{{ investigator.email }}</td>
+                    <td>{{ investigator.assigned_cases }}</td>
+                    <td>{{ investigator.avg_resolution_time or 'N/A' }}</td>
+                    <td>
+                        <form action="{{ url_for('remove_investigator') }}" method="POST" style="display:inline;">
+                            <input type="hidden" name="investigator_id" value="{{ investigator.investigator_id }}">
+                            <button type="submit" class="button danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

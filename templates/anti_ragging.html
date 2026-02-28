@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anti-Ragging | Lachoo Memorial College of Science & Technology</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+        <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+     <div class="nav-container">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='orange_lo1.png') }}" alt="Institute Logo" class="logo light-mode">
+        <img src="{{ url_for('static', filename='teal_lo.png') }}" alt="Institute Logo" class="logo dark-mode">
+    </div>
+    <nav id="nav-links">
+        
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about_us') }}">About Us</a>
+        <a href="{{ url_for('counseling') }}">Counseling</a>
+
+        <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a>
+        <a href="{{ url_for('student_privileges') }}">Student Services</a>
+        <a href="{{ url_for('anti_ragging') }}">Anti-Ragging</a></li>
+<a href="{{ url_for('grievance_committee') }}">Grievance Redressal Committee</a></li>
+
+    </nav>
+</div>
+    <header class="header">
+        <h1>Anti-Ragging</h1>
+        <p>Committed to a Safe, Supportive, and Inclusive Campus Environment</p>
+    </header>
+    <main class="main-content">
+        <section class="intro">
+            <h2>What is Ragging?</h2>
+            <h3>
+                Ragging is any behavior that causes physical or emotional harm, or creates a hostile environment for a student. This includes:
+            </h3>
+            <ul>
+                <li>Physical abuse or assault</li>
+                <li>Verbal abuse or harassment</li>
+                <li>Forced participation in activities</li>
+                <li>Exploitation or intimidation</li>
+            </ul>
+        </section>
+<br>
+        <section class="committee">
+            <h2>Anti Ragging Committee (ARC)</h2>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>SNo.</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>DR G S SISODIYA</td><td>COORDINATOR</td></tr>
+                    <tr><td>2</td><td>DR ABHILASHA MATHUR</td><td>MEMBER</td></tr>
+                    <tr><td>3</td><td>DR AJAY GAUR</td><td>MEMBER</td></tr>
+                    <tr><td>4</td><td>DR ANJU MATHUR</td><td>MEMBER</td></tr>
+                    <tr><td>5</td><td>DR DEEPAK MATHUR I</td><td>MEMBER</td></tr>
+                    <tr><td>6</td><td>DR NAVNEET AGARWAL</td><td>MEMBER</td></tr>
+                    <tr><td>7</td><td>DR RAVI MATHUR</td><td>MEMBER</td></tr>
+                    <tr><td>8</td><td>DR VINOD KUMAR SONI</td><td>MEMBER</td></tr>
+                    <tr><td>9</td><td>MR ARUN PRAJAPAT</td><td>MEMBER</td></tr>
+                    <tr><td>10</td><td>MR PANKAJ BHATI</td><td>MEMBER</td></tr>
+                    <tr><td>11</td><td>MR TRILOK JINDAL</td><td>MEMBER</td></tr>
+                    <tr><td>12</td><td>MR. YOGESH SHARMA</td><td>LOCAL MEDIA PERSON</td></tr>
+                    <tr><td>13</td><td>MR. OM PRAKASH GANCHI F/O MANISHA</td><td>PARENT OF STUDENT</td></tr>
+                    <tr><td>14</td><td>MR. NARENDRA KUMAR SINGH F/O ADITYA KUMAR SINGH</td><td>PARENT OF STUDENT</td></tr>
+                    <tr><td>15</td><td>KANAN JAIN</td><td>STUDENT MEMBER</td></tr>
+                    <tr><td>16</td><td>ABHISHEK</td><td>STUDENT MEMBER</td></tr>
+                    <tr><td>17</td><td>PUSHPENDER</td><td>STUDENT MEMBER</td></tr>
+                    <tr><td>18</td><td>SAKSHI PARIHAR</td><td>STUDENT MEMBER</td></tr>
+                </tbody>
+            </table>
+        </section>
+<br>
+        <section class="roles">
+            <h2>Roles and Responsibilities</h2>
+            <ul>
+                <li>Preventing and addressing ragging incidents</li>
+                <li>Conducting workshops and awareness programs</li>
+                <li>Providing counseling and support to victims</li>
+                <li>Investigating and taking action against perpetrators</li>
+            </ul>
+        </section>
+
+        <section class="consequences">
+            <h2>Consequences of Ragging</h2>
+            <ul>
+                <li>Suspension or expulsion from college</li>
+                <li>Fines or penalties</li>
+                <li>Criminal charges</li>
+            </ul>
+        </section>
+<br>
+        <section class="reporting">
+            <h2>Procedure for Reporting Ragging</h2>
+            <p>
+                If you are a victim of ragging or witness an incident, please report it immediately to any member of the ARC.
+            </p>
+        </section>
+<br>
+        <section class="contacts">
+            <h2>Important Contacts</h2>
+            <ul>
+                <li>
+                    <strong>University Grants Commission (UGC) Anti Ragging Cell</strong><br>
+                    6, Benito Juarez Marg, South Campus, South Moti Bagh, New Delhi – 110021
+                </li>
+                <li>
+                    <strong>National Anti-Ragging Helpline:</strong> 1800-180-5522<br>
+                    <strong>Email:</strong> <a href="mailto:helpline@antiragging.in" class="anchor">helpline@antiragging.in</a>
+                </li>
+                <li>
+                    <strong>Monitoring Agency (Centre for Youth - C4Y)</strong><br>
+                    New Delhi – 110068<br>
+                    <strong>Phone:</strong> 91-11416 19005<br>
+                    <strong>Email:</strong> <a href="mailto:antiragging@c4yindia.org" class="anchor">antiragging@c4yindia.org</a>
+                </li>
+                <li>
+                    <strong>Lachoo Memorial College Anti-Ragging Helpline</strong><br>
+                    <strong>Mobile:</strong> 95098 24232<br>
+                    <strong>Email:</strong> <a href="mailto:office@lachoomemorial.org" class="anchor">office@lachoomemorial.org</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+    <footer class="footer">
+        <p>© 2025 Lachoo Memorial College of Science & Technology. All rights reserved.</p>
+
+
+    <!-- Include your JavaScript file here -->
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Complaint Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <script>
+        window.onload = function() {
+            const message = new URLSearchParams(window.location.search).get('message');
+            if (message) {
+                alert(message);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleThemeAndAnimation()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <header class="header">
+        <h1>Update Complaint Status</h1>
+        <p>Enter the Grievance ID and update the status of the complaint.</p>
+    </header>
+    
+    <div class="form-container">
+        <form action="{{ url_for('update_status') }}" method="post">
+            <label for="grievance_id">Grievance ID:</label>
+            <select id="grievance_id" name="grievance_id" required>
+                {% for grievance in grievances %}
+                <option value="{{ grievance.grievance_id }}">{{ grievance.grievance_id }} - {{ grievance.description }}</option>
+                {% endfor %}
+            </select>
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+                <option value="Closed">Closed</option>
+            </select>
+            
+            <button type="submit" class="button">Update Status</button>
+        </form>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2025 College Anti-Grievance System. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='tr.js') }}"></script>
+</body>
+</html>

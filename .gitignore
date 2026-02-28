@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+
+# Environment files
+.env
+.env.*
+
+# Database files
+*.db
+*.sqlite3
+*.sqlite
+
+# Flask instance folder
+instance/
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Static build
+dist/
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
